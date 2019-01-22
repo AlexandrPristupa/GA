@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import mainReducer from '../reducers/mainReducer';
+import app from '../reducers/app';
 
 const reducers = combineReducers({
-    mainReducer
+    app
 });
 
 export default reducers;
