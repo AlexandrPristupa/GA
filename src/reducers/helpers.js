@@ -8,15 +8,11 @@ export const autoSuggestionSelector = state => {
     if (state.app.searchInput.length === 0) {
         return []
     }
-    const data = Object.keys(state.app.propertyData).map(key => state.app.propertyData[key])
+    const data = Object.keys(state.app.propertyData).map(key => state.app.propertyData[key]);
 
-    const filtred = data.filter(searcFunc(state.app.currentSearchFilter))
-    filtred.length = 5;
+    return data.filter(searcFunc(state.app.currentSearchFilter));
 
-    console.log(filtred);
-
-    return filtred;
-}
+};
 
 /**
  * 
@@ -30,49 +26,48 @@ export const propertyDataSelector = state => {
      
             return state.app.propertyData[key];
 
-        })
+        });
         data.sort(getSortFunction(state.app));
-        const filtered = data.filter(searcFunc(state.app.currentSearchFilter))
-        filtered.length = 15;
-        return filtered;
+
+        return data.filter(searcFunc(state.app.currentSearchFilter));
     }
-}
+};
 
 /**
  * 
- * @param {*} searchCriteria 
+ * @param {*} searchCriteria (string)
  */
 
 export const searcFunc = searchCriteria => item => {
-    const searchFields = ['id', 'address', 'type']
+    const searchFields = ['id', 'address', 'type'];
     for (let field of searchFields) {
         if (item[field].toString().toLowerCase().search(searchCriteria.toLowerCase()) >= 0) {
             return true;
         }
     }
     return false;
-}
+};
 
 /**
- * 
+ * Number sort (desc)
  * @param {*} type 
  */
 
 const numberSortDesc = type => (a, b) => (
     b[type] - a[type]
-)
+);
 
 /**
- * 
+ * Number sort (asc)
  * @param {*} type 
  */
 
 const numberSortAsc = type => (a, b) => (
     a[type] - b[type]
-)
+);
 
 /**
- * 
+ * Text sort (asc)
  * @param {*} type 
  */
 
@@ -84,10 +79,10 @@ const textSortAsc = type => (a, b) => {
         return -1;
     }
     return 0;
-}
+};
 
 /**
- * 
+ * Text sort (desc)
  * @param {*} type 
  */
 
@@ -99,10 +94,10 @@ const textSortDesc = type => (a, b) => {
         return 1;
     }
     return 0;
-}
+};
 
 /**
- * 
+ * Sort favorite objects
  * @param {*} a 
  * @param {*} b 
  */
@@ -115,10 +110,10 @@ const sortFavorite = (a, b) => {
         return 1;
     }
     return 0;
-}
+};
 
 /**
- * 
+ * Favorite objects always first
  * @param {*} sortFunc 
  */
 
@@ -127,10 +122,10 @@ const favoriteFirst = sortFunc => (a, b) => {
         return sortFunc(a, b);
     }
     return sortFavorite(a, b);
-}
+};
 
 /**
- * 
+ * get sort function by sort type
  * @param {*} state 
  */
 
@@ -146,4 +141,4 @@ const getSortFunction = state => {
         }
         return favoriteFirst(textSortDesc(state.sortType));
     }
-}
+};
