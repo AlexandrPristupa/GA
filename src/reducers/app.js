@@ -6,7 +6,7 @@ const initialState = {
     sortType: 'id',
     searchInput: '',
     currentSearchFilter: ''
-}
+};
 
 const app = (state = initialState, action) => {
    switch (action.type) {
@@ -22,7 +22,7 @@ const app = (state = initialState, action) => {
                         ...action.payload
                     }
                 }
-            }
+            };
 
 
         case types.FAVORITE:
@@ -36,7 +36,7 @@ const app = (state = initialState, action) => {
                             isFavorite: true
                     }
                 }
-            }
+            };
 
         case types.SORTING: 
 
@@ -44,27 +44,27 @@ const app = (state = initialState, action) => {
                 ...state,
                 sortDirection: action.payload.sortDirection,
                 sortType: action.payload.sortType
-            }
+            };
 
         case types.SEARCH: 
 
             return {
                 ...state,
                 searchInput: action.payload
-            }
+            };
         
         case types.SUBMITSEARCH:
 
         return {
             ...state,
             currentSearchFilter: state.searchInput
-        }
+        };
 
         default:
 
             return state
 
    } 
-}
+};
 
 export default app;

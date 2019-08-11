@@ -23,11 +23,11 @@ const Search = ({
             </button>
         </div>
     </form>
-)
+);
 
 Search.propTypes = {
     onSearchChange: PropTypes.func.isRequired,
     onSubmitSearch: PropTypes.func.isRequired
-}
+};
 
 export default Search;

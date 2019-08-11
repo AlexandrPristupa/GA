@@ -29,12 +29,12 @@ const TableHead = ({
             }
         </tr>
     </thead>
-)
+);
 
 TableHead.propTypes = {
     tableHeadFields: PropTypes.array.isRequired,
     onClickSorting: PropTypes.func.isRequired,
     getClassSortArrow: PropTypes.func.isRequired
-}
+};
 
 export default TableHead;

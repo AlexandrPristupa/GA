@@ -21,11 +21,11 @@ const TableRow = ({
             />
         </td>
     </tr>
-)
+);
 
 TableRow.propTypes = {
     onClickFavorite: PropTypes.func.isRequired,
     row: PropTypes.object.isRequired
-}
+};
 
 export default TableRow;

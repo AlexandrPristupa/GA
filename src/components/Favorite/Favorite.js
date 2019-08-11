@@ -20,6 +20,6 @@ Favorite.propTypes = {
     onClickFavorite: PropTypes.func.isRequired,
     rowId: PropTypes.number.isRequired,
     isFavorite: PropTypes.bool
-}
+};
 
 export default Favorite;

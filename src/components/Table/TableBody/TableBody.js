@@ -9,11 +9,11 @@ const TableBody = ({
     <tbody>
         { propertyData.map((row) => <TableRow onClickFavorite={onClickFavorite} key={row.id} row={row} />) }
     </tbody>
-)
+);
 
 TableBody.propTypes = {
     propertyData: PropTypes.array.isRequired,
     onClickFavorite: PropTypes.func.isRequired
-}
+};
 
 export default TableBody;

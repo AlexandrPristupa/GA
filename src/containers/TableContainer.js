@@ -16,7 +16,7 @@ class TableContainer extends Component {
         propertyData: PropTypes.array.isRequired,
         sortDirection: PropTypes.string.isRequired,
         sortType: PropTypes.string.isRequired
-    }
+    };
 
     componentDidMount() {
         properties$.subscribe((data) => {
@@ -26,7 +26,7 @@ class TableContainer extends Component {
 
     handleClickFavorite = (id) => {
         this.props.favorite(id);
-    }
+    };
 
     handleClickSorting = (field) => {
         const { sorting, sortDirection, sortType } = this.props;
@@ -47,7 +47,7 @@ class TableContainer extends Component {
             });
         }
 
-    }
+    };
 
     getClassSortArrow = (field) => {
         const { sortDirection, sortType } = this.props;
@@ -61,7 +61,7 @@ class TableContainer extends Component {
         }
 
         return 'fas fa-sort-up'
-    }
+    };
   
     render() {
         const { propertyData } = this.props;
